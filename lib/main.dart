@@ -25,10 +25,10 @@ class _MathHomePageState extends State<MathHomePage> {
   Widget build(BuildContext context) {
     final PreferredSizeWidget appBar = Platform.isIOS
         ? CupertinoNavigationBar(
-            middle: Text('Personal Expenses'),
+            middle: Text('Math App'),
           )
         : AppBar(
-            title: Text('Personal Expenses'),
+            title: Text('Math App'),
           );
 
     final pageBody = SafeArea(
