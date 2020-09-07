@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 void main() => runApp(MyApp());
 
@@ -20,8 +23,29 @@ class MathHomePage extends StatefulWidget {
 class _MathHomePageState extends State<MathHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text('Hello World'),
+    final PreferredSizeWidget appBar = Platform.isIOS
+        ? CupertinoNavigationBar(
+            middle: Text('Personal Expenses'),
+          )
+        : AppBar(
+            title: Text('Personal Expenses'),
+          );
+
+    final pageBody = SafeArea(
+      child: Center(
+        child: Text('App'),
+      ),
     );
+
+
+    return Platform.isIOS
+        ? CupertinoPageScaffold(
+            child: pageBody,
+            navigationBar: appBar,
+          )
+        : Scaffold(
+            appBar: appBar,
+            body: pageBody,
+          );
   }
 }
