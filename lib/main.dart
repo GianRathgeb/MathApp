@@ -3,6 +3,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
+import './models/calculator.dart';
+import './widgets/calc_list.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -21,6 +24,14 @@ class MathHomePage extends StatefulWidget {
 }
 
 class _MathHomePageState extends State<MathHomePage> {
+  var calculators = [
+    Calculator(
+      title: 'Trigonometry',
+      screen: './screens/trig.dart',
+      image: '.assets/images/trig.png',
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     final PreferredSizeWidget appBar = Platform.isIOS
@@ -32,11 +43,8 @@ class _MathHomePageState extends State<MathHomePage> {
           );
 
     final pageBody = SafeArea(
-      child: Center(
-        child: Text('App'),
-      ),
+      child: CalculatorList(calculators),
     );
-
 
     return Platform.isIOS
         ? CupertinoPageScaffold(
