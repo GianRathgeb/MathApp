@@ -14,22 +14,31 @@ class CalculatorList extends StatelessWidget {
     return ListView.builder(
       itemCount: calculatorsList.length,
       itemBuilder: (ctx, index) {
-        return Card(
-          child: Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                fit: BoxFit.fill,
-                image: AssetImage(
-                  calculatorsList[index].image.toString(),
+        return InkWell(
+          onTap: () {
+            Navigator.push(
+              context,
+              // calculatorsList[index].screen()
+              MaterialPageRoute(builder: (context) => calculatorsList[index].screen),
+            );
+          },
+          child: Card(
+            child: Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.fill,
+                  image: AssetImage(
+                    calculatorsList[index].image.toString(),
+                  ),
                 ),
               ),
-            ),
-            child: ListTile(
-              leading: Text(
-                calculatorsList[index].title.toString(),
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
+              child: ListTile(
+                leading: Text(
+                  calculatorsList[index].title.toString(),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                  ),
                 ),
               ),
             ),

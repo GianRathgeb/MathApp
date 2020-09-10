@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 
 class Calculator {
   final String title;
-  final String screen;
+  final Object screen;
   final Object image;
 
   Calculator({

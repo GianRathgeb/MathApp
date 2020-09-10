@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 
 import './models/calculator.dart';
 import './widgets/calc_list.dart';
+import './screens/square.dart';
 
 void main() => runApp(MyApp());
 
@@ -27,7 +28,7 @@ class _MathHomePageState extends State<MathHomePage> {
   var calculators = [
     Calculator(
       title: 'Square',
-      screen: './screens/square.dart',
+      screen: SquareScreen(),
       image: 'assets/images/squares.jpg',
     ),
   ];
