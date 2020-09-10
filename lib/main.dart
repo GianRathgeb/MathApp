@@ -26,34 +26,34 @@ class MathHomePage extends StatefulWidget {
 class _MathHomePageState extends State<MathHomePage> {
   var calculators = [
     Calculator(
-      title: 'Trigonometry',
-      screen: './screens/trig.dart',
-      image: '.assets/images/trig.png',
+      title: 'Square',
+      screen: './screens/square.dart',
+      image: '../assets/images/square.png',
     ),
   ];
 
   @override
   Widget build(BuildContext context) {
-    final PreferredSizeWidget appBar = Platform.isIOS
-        ? CupertinoNavigationBar(
-            middle: Text('Math App'),
-          )
-        : AppBar(
+    final PreferredSizeWidget appBar = Platform.isAndroid
+        ? AppBar(
             title: Text('Math App'),
+          )
+        : CupertinoNavigationBar(
+            middle: Text('Math App'),
           );
 
     final pageBody = SafeArea(
       child: CalculatorList(calculators),
     );
 
-    return Platform.isIOS
-        ? CupertinoPageScaffold(
-            child: pageBody,
-            navigationBar: appBar,
-          )
-        : Scaffold(
+    return Platform.isAndroid
+        ? Scaffold(
             appBar: appBar,
             body: pageBody,
+          )
+        : CupertinoPageScaffold(
+            navigationBar: appBar,
+            child: pageBody,
           );
   }
 }
