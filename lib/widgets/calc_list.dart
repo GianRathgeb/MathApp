@@ -18,7 +18,6 @@ class CalculatorList extends StatelessWidget {
           onTap: () {
             Navigator.push(
               context,
-              // calculatorsList[index].screen()
               MaterialPageRoute(builder: (context) => calculatorsList[index].screen),
             );
           },
