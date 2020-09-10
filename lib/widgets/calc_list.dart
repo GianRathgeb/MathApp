@@ -15,8 +15,24 @@ class CalculatorList extends StatelessWidget {
       itemCount: calculatorsList.length,
       itemBuilder: (ctx, index) {
         return Card(
-          child: ListTile(
-            leading: Text(calculatorsList[index].title.toString()),
+          child: Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                fit: BoxFit.fill,
+                image: AssetImage(
+                  calculatorsList[index].image.toString(),
+                ),
+              ),
+            ),
+            child: ListTile(
+              leading: Text(
+                calculatorsList[index].title.toString(),
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                ),
+              ),
+            ),
           ),
         );
       },

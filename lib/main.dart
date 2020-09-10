@@ -28,7 +28,7 @@ class _MathHomePageState extends State<MathHomePage> {
     Calculator(
       title: 'Square',
       screen: './screens/square.dart',
-      image: '../assets/images/square.png',
+      image: 'assets/images/squares.jpg',
     ),
   ];
 
