@@ -49,10 +49,12 @@ class _MathHomePageState extends State<MathHomePage> {
 
     return Platform.isAndroid
         ? Scaffold(
+            resizeToAvoidBottomInset: false,
             appBar: appBar,
             body: pageBody,
           )
         : CupertinoPageScaffold(
+            resizeToAvoidBottomInset: false,
             navigationBar: appBar,
             child: pageBody,
           );
