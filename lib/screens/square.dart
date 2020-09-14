@@ -6,6 +6,8 @@ import 'package:flutter/cupertino.dart';
 import '../widgets/calc_list.dart';
 
 class SquareScreen extends StatelessWidget {
+  static double squareSize = 100;
+
   @override
   Widget build(BuildContext context) {
     final PreferredSizeWidget appBar = Platform.isAndroid
@@ -21,14 +23,15 @@ class SquareScreen extends StatelessWidget {
         child: Row(
           children: [
             Container(
-              width: 30,
-              height: 30,
+              width: squareSize,
+              height: squareSize,
               margin: EdgeInsets.only(
-                left: 100,
+                left:
+                    (MediaQuery.of(context).size.width / 2) - (squareSize / 2),
                 top: 20,
               ),
               decoration: BoxDecoration(
-                border: Border.all(),
+                border: Border.all(width: 2.5),
               ),
             ),
           ],
