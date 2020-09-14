@@ -18,7 +18,21 @@ class SquareScreen extends StatelessWidget {
 
     final pageBody = SafeArea(
       child: Container(
-        child: Text('Test'),
+        child: Row(
+          children: [
+            Container(
+              width: 30,
+              height: 30,
+              margin: EdgeInsets.only(
+                left: 100,
+                top: 20,
+              ),
+              decoration: BoxDecoration(
+                border: Border.all(),
+              ),
+            ),
+          ],
+        ),
       ),
     );
 
