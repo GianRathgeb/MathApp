@@ -115,16 +115,29 @@ class _RectangleScreenState extends State<RectangleScreen> {
             ),
             Container(
               width: mediaQuery.size.width,
-              height: mediaQuery.size.height * 0.1,
+              height: mediaQuery.size.height * 0.075,
               margin: EdgeInsets.only(
                 top: 20,
               ),
-              child: FlatButton(
-                child: Text('Calculate missing values'),
-                padding: EdgeInsets.all(10),
-                color: Theme.of(context).primaryColor,
-                textColor: Theme.of(context).textTheme.button.color,
-                onPressed: _submitData,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  FlatButton(
+                    onPressed: _submitData,
+                    child: Text('Clear'),
+                    padding: EdgeInsets.all(10),
+                    color: Theme.of(context).primaryColor,
+                    textColor: Theme.of(context).textTheme.button.color,
+                  ),
+                  FlatButton(
+                    child: Text('Calculate missing values'),
+                    padding: EdgeInsets.all(10),
+                    color: Theme.of(context).primaryColor,
+                    textColor: Theme.of(context).textTheme.button.color,
+                    onPressed: _submitData,
+                  ),
+                ],
               ),
             )
           ],

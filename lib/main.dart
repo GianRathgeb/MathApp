@@ -35,7 +35,7 @@ class _MathHomePageState extends State<MathHomePage> {
     ), Calculator(
       title: 'Rectangle',
       screen: RectangleScreen(),
-      image: 'assets/images/Rectangle.jpg',
+      image: 'assets/images/rectangles.jpg',
     ),
   ];
 

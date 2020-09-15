@@ -23,7 +23,7 @@ class CalculatorList extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  fit: BoxFit.fill,
+                  fit: BoxFit.cover,
                   image: AssetImage(
                     calculatorsList[index].image.toString(),
                   ),
