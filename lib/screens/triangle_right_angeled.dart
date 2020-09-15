@@ -4,6 +4,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
+import '../widgets/forms.dart';
+
 class TriangleRightAngledScreen extends StatefulWidget {
   @override
   _TriangleRightAngledScreenState createState() => _TriangleRightAngledScreenState();
@@ -71,12 +73,8 @@ class _TriangleRightAngledScreenState extends State<TriangleRightAngledScreen> {
               width: mediaQuery.size.width,
               height: mediaQuery.size.height * 0.3,
               child: Center(
-                child: Container(
-                  width: triangleSize,
-                  height: triangleSize,
-                  decoration: BoxDecoration(
-                    border: Border.all(width: 2.5),
-                  ),
+                child: Center(
+                  child: Forms(),
                 ),
               ),
             ),
