@@ -45,7 +45,7 @@ class _RectangleScreenState extends State<RectangleScreen> {
 
   @override
   Widget build(BuildContext context) {
-    const double rectangleSize = 200;
+    const double triangleSize = 200;
     var mediaQuery = MediaQuery.of(context);
 
     final PreferredSizeWidget appBar = Platform.isAndroid
@@ -72,8 +72,8 @@ class _RectangleScreenState extends State<RectangleScreen> {
               height: mediaQuery.size.height * 0.3,
               child: Center(
                 child: Container(
-                  width: rectangleSize * 1.3,
-                  height: rectangleSize / 1.3,
+                  width: triangleSize * 1.3,
+                  height: triangleSize / 1.3,
                   decoration: BoxDecoration(
                     border: Border.all(width: 2.5),
                   ),
