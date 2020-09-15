@@ -1,6 +1,5 @@
 import 'dart:io';
 
-
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -8,6 +7,7 @@ import './models/calculator.dart';
 import './widgets/calc_list.dart';
 import './screens/square.dart';
 import './screens/rectangle.dart';
+import './screens/triangle_right_angeled.dart';
 
 void main() => runApp(MyApp());
 
@@ -36,6 +36,11 @@ class _MathHomePageState extends State<MathHomePage> {
       title: 'Rectangle',
       screen: RectangleScreen(),
       image: 'assets/images/rectangles.jpg',
+    ),
+    Calculator(
+      title: 'Triangles (right-angled)',
+      screen: TriangleRightAngledScreen(),
+      image: 'assets/images/triangles.png',
     ),
   ];
 
