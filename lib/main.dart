@@ -1,11 +1,13 @@
 import 'dart:io';
 
+
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
 import './models/calculator.dart';
 import './widgets/calc_list.dart';
 import './screens/square.dart';
+import './screens/rectangle.dart';
 
 void main() => runApp(MyApp());
 
@@ -30,6 +32,10 @@ class _MathHomePageState extends State<MathHomePage> {
       title: 'Square',
       screen: SquareScreen(),
       image: 'assets/images/squares.jpg',
+    ), Calculator(
+      title: 'Rectangle',
+      screen: RectangleScreen(),
+      image: 'assets/images/Rectangle.jpg',
     ),
   ];
 
