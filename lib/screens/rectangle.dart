@@ -4,6 +4,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
+import '../widgets/forms/rectangle.dart';
+
 class RectangleScreen extends StatefulWidget {
   @override
   _RectangleScreenState createState() => _RectangleScreenState();
@@ -45,7 +47,6 @@ class _RectangleScreenState extends State<RectangleScreen> {
 
   @override
   Widget build(BuildContext context) {
-    const double rectangleSize = 200;
     var mediaQuery = MediaQuery.of(context);
 
     final PreferredSizeWidget appBar = Platform.isAndroid
@@ -60,10 +61,10 @@ class _RectangleScreenState extends State<RectangleScreen> {
     final pageBody = SafeArea(
       child: Container(
         padding: EdgeInsets.only(
-          top: mediaQuery.size.height * 0.05,
+          top: 20,
           left: 10,
           right: 10,
-          bottom: mediaQuery.size.height * 0.05,
+          bottom: 10,
         ),
         child: ListView(
           children: [
@@ -71,13 +72,7 @@ class _RectangleScreenState extends State<RectangleScreen> {
               width: mediaQuery.size.width,
               height: mediaQuery.size.height * 0.3,
               child: Center(
-                child: Container(
-                  width: rectangleSize * 1.3,
-                  height: rectangleSize / 1.3,
-                  decoration: BoxDecoration(
-                    border: Border.all(width: 2.5),
-                  ),
-                ),
+                child: FormRectangle(),
               ),
             ),
             Container(

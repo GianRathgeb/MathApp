@@ -4,6 +4,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
+import '../widgets/forms/square.dart';
+
 class SquareScreen extends StatefulWidget {
   @override
   _SquareScreenState createState() => _SquareScreenState();
@@ -32,12 +34,11 @@ class _SquareScreenState extends State<SquareScreen> {
 
   @override
   Widget build(BuildContext context) {
-    const double squareSize = 200;
     var mediaQuery = MediaQuery.of(context);
 
     final PreferredSizeWidget appBar = Platform.isAndroid
         ? AppBar(
-      toolbarHeight: mediaQuery.size.height * 0.1,
+            toolbarHeight: mediaQuery.size.height * 0.1,
             title: Text('Squares'),
           )
         : CupertinoNavigationBar(
@@ -47,24 +48,18 @@ class _SquareScreenState extends State<SquareScreen> {
     final pageBody = SafeArea(
       child: Container(
         padding: EdgeInsets.only(
-          top: mediaQuery.size.height * 0.05,
+          top: 20,
           left: 10,
           right: 10,
-          bottom: mediaQuery.size.height * 0.05,
+          bottom: 10,
         ),
         child: ListView(
           children: [
             SizedBox(
               width: mediaQuery.size.width,
-              height: mediaQuery.size.height * 0.4,
+              height: mediaQuery.size.height * 0.3,
               child: Center(
-                child: Container(
-                  width: squareSize,
-                  height: squareSize,
-                  decoration: BoxDecoration(
-                    border: Border.all(width: 2.5),
-                  ),
-                ),
+                child: FormSquare(),
               ),
             ),
             Container(

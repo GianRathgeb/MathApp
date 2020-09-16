@@ -7,7 +7,7 @@ import './models/calculator.dart';
 import './widgets/calc_list.dart';
 import './screens/square.dart';
 import './screens/rectangle.dart';
-import './screens/triangle_right_angeled.dart';
+import './screens/triangle_right_angled.dart';
 
 void main() => runApp(MyApp());
 

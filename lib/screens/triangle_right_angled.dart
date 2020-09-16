@@ -4,11 +4,12 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-import '../widgets/forms.dart';
+import '../widgets/forms/triangle_right_angled.dart';
 
 class TriangleRightAngledScreen extends StatefulWidget {
   @override
-  _TriangleRightAngledScreenState createState() => _TriangleRightAngledScreenState();
+  _TriangleRightAngledScreenState createState() =>
+      _TriangleRightAngledScreenState();
 }
 
 class _TriangleRightAngledScreenState extends State<TriangleRightAngledScreen> {
@@ -23,22 +24,19 @@ class _TriangleRightAngledScreenState extends State<TriangleRightAngledScreen> {
       return;
     } else if (_triangleSideC.text.isEmpty) {
       setState(() {
-        _triangleSideC.text = (sqrt(
-            pow(double.parse(_triangleSideA.text), 2) +
+        _triangleSideC.text = (sqrt(pow(double.parse(_triangleSideA.text), 2) +
                 pow(double.parse(_triangleSideB.text), 2)))
             .toString();
       });
     } else if (_triangleSideA.text.isEmpty) {
       setState(() {
-        _triangleSideA.text = (sqrt(
-            pow(double.parse(_triangleSideC.text), 2) -
+        _triangleSideA.text = (sqrt(pow(double.parse(_triangleSideC.text), 2) -
                 pow(double.parse(_triangleSideB.text), 2)))
             .toString();
       });
     } else if (_triangleSideB.text.isEmpty) {
       setState(() {
-        _triangleSideB.text = (sqrt(
-            pow(double.parse(_triangleSideC.text), 2) -
+        _triangleSideB.text = (sqrt(pow(double.parse(_triangleSideC.text), 2) -
                 pow(double.parse(_triangleSideA.text), 2)))
             .toString();
       });
@@ -47,7 +45,6 @@ class _TriangleRightAngledScreenState extends State<TriangleRightAngledScreen> {
 
   @override
   Widget build(BuildContext context) {
-    const double triangleSize = 200;
     var mediaQuery = MediaQuery.of(context);
 
     final PreferredSizeWidget appBar = Platform.isAndroid
@@ -62,10 +59,10 @@ class _TriangleRightAngledScreenState extends State<TriangleRightAngledScreen> {
     final pageBody = SafeArea(
       child: Container(
         padding: EdgeInsets.only(
-          top: mediaQuery.size.height * 0.05,
+          top: 20,
           left: 10,
           right: 10,
-          bottom: mediaQuery.size.height * 0.05,
+          bottom: 10,
         ),
         child: ListView(
           children: [
@@ -73,9 +70,7 @@ class _TriangleRightAngledScreenState extends State<TriangleRightAngledScreen> {
               width: mediaQuery.size.width,
               height: mediaQuery.size.height * 0.3,
               child: Center(
-                child: Center(
-                  child: Forms(),
-                ),
+                child: FormTriangleRightAngled(),
               ),
             ),
             Container(
@@ -88,12 +83,13 @@ class _TriangleRightAngledScreenState extends State<TriangleRightAngledScreen> {
                 controller: _triangleSideA,
                 onSubmitted: (_) => _submitData(),
               ),
-            ),Container(
+            ),
+            Container(
               width: mediaQuery.size.width,
               height: mediaQuery.size.height * 0.1,
               child: TextField(
                 decoration:
-                InputDecoration(labelText: 'Enter Side B of triangle'),
+                    InputDecoration(labelText: 'Enter Side B of triangle'),
                 keyboardType: TextInputType.number,
                 controller: _triangleSideB,
                 onSubmitted: (_) => _submitData(),
