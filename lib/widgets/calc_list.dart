@@ -33,7 +33,7 @@ class CalculatorList extends StatelessWidget {
                 leading: Text(
                   calculatorsList[index].title.toString(),
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Theme.of(context).textTheme.headline6.color,
                     fontSize: 20,
                   ),
                 ),

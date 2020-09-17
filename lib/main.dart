@@ -8,7 +8,8 @@ import './widgets/calc_list.dart';
 import './screens/square.dart';
 import './screens/rectangle.dart';
 import './screens/triangle_right_angled.dart';
-import './models/colors.dart';
+
+import 'settings.dart';
 
 void main() => runApp(MyApp());
 
@@ -19,51 +20,52 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Math App",
       theme: ThemeData(
-        primarySwatch: primaryWhite,
-        accentColor: primaryWhite,
-        scaffoldBackgroundColor: primaryWhite,
-        fontFamily: 'Quicksand',
+        primarySwatch: lightThemeSettings['primaryColor'],
+        accentColor: lightThemeSettings['accentColor'],
+        scaffoldBackgroundColor: lightThemeSettings['backgroundColor'],
+        fontFamily: themeSettings['secondaryFont'],
         textTheme: ThemeData.light().textTheme.copyWith(
               headline6: TextStyle(
-                fontFamily: 'OpenSans',
-                fontSize: 18,
-                color: primaryBlack,
+                fontFamily: themeSettings['mainFont'],
+                fontSize: themeSettings['fontSize'],
+                color: lightThemeSettings['fontColor'],
                 fontWeight: FontWeight.bold,
               ),
               button: TextStyle(
-                color: primaryBlack,
+                color: lightThemeSettings['fontColor'],
               ),
             ),
         appBarTheme: AppBarTheme(
           textTheme: ThemeData.light().textTheme.copyWith(
                 headline6: TextStyle(
-                  fontFamily: 'OpenSans',
-                  fontSize: 20,
+                  fontFamily: themeSettings['mainFont'],
+                  fontSize: themeSettings['headlineFontSize'],
                 ),
               ),
         ),
       ),
       darkTheme: ThemeData(
-        primarySwatch: primaryBlack,
-        accentColor: primaryBlack,
-        scaffoldBackgroundColor: primaryBlack,
-        fontFamily: 'Quicksand',
+        primarySwatch: darkThemeSettings['primaryColor'],
+        accentColor: darkThemeSettings['accentColor'],
+        scaffoldBackgroundColor: darkThemeSettings['backgroundColor'],
+        fontFamily: themeSettings['secondaryFont'],
         textTheme: ThemeData.light().textTheme.copyWith(
               headline6: TextStyle(
-                fontFamily: 'OpenSans',
-                fontSize: 18,
-                color: primaryWhite,
+                fontFamily: themeSettings['mainFont'],
+                fontSize: themeSettings['fontSize'],
                 fontWeight: FontWeight.bold,
+                color: darkThemeSettings['fontColor'],
               ),
               button: TextStyle(
-                color: primaryWhite,
+                color: darkThemeSettings['fontColor'],
               ),
             ),
         appBarTheme: AppBarTheme(
           textTheme: ThemeData.light().textTheme.copyWith(
                 headline6: TextStyle(
-                  fontFamily: 'OpenSans',
-                  fontSize: 20,
+                  fontFamily: themeSettings['mainFont'],
+                  fontSize: themeSettings['headlineFontSize'],
+                  color: darkThemeSettings['fontColor']
                 ),
               ),
         ),
@@ -116,7 +118,6 @@ class _MathHomePageState extends State<MathHomePage> {
     final pageBody = SafeArea(
       child: CalculatorList(_calculators),
     );
-
     return Platform.isAndroid
         ? Scaffold(
             resizeToAvoidBottomInset: false,
