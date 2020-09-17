@@ -49,7 +49,7 @@ class _TriangleRightAngledScreenState extends State<TriangleRightAngledScreen> {
 
     final PreferredSizeWidget appBar = Platform.isAndroid
         ? AppBar(
-            toolbarHeight: mediaQuery.size.height * 0.1,
+            toolbarHeight: mediaQuery.size.height * 0.075,
             title: Text('Triangles (right-angled)'),
           )
         : CupertinoNavigationBar(

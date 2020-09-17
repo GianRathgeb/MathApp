@@ -16,6 +16,54 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Math App",
+      theme: ThemeData(
+        primarySwatch: Colors.red,
+        accentColor: Colors.redAccent,
+        scaffoldBackgroundColor: Colors.white,
+        fontFamily: 'Quicksand',
+        textTheme: ThemeData.light().textTheme.copyWith(
+              headline6: TextStyle(
+                fontFamily: 'OpenSans',
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+              button: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+        appBarTheme: AppBarTheme(
+          textTheme: ThemeData.light().textTheme.copyWith(
+                headline6: TextStyle(
+                  fontFamily: 'OpenSans',
+                  fontSize: 20,
+                ),
+              ),
+        ),
+      ),
+      darkTheme: ThemeData(
+        primarySwatch: Color(0xFF000000),
+        accentColor: Colors.white,
+        scaffoldBackgroundColor: Colors.black,
+        fontFamily: 'Quicksand',
+        textTheme: ThemeData.light().textTheme.copyWith(
+              headline6: TextStyle(
+                fontFamily: 'OpenSans',
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+              button: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+        appBarTheme: AppBarTheme(
+          textTheme: ThemeData.light().textTheme.copyWith(
+                headline6: TextStyle(
+                  fontFamily: 'OpenSans',
+                  fontSize: 20,
+                ),
+              ),
+        ),
+      ),
       home: MathHomePage(),
     );
   }
@@ -32,7 +80,8 @@ class _MathHomePageState extends State<MathHomePage> {
       title: 'Square',
       screen: SquareScreen(),
       image: 'assets/images/squares.jpg',
-    ), Calculator(
+    ),
+    Calculator(
       title: 'Rectangle',
       screen: RectangleScreen(),
       image: 'assets/images/rectangles.jpg',
