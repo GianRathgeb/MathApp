@@ -8,8 +8,10 @@ import './widgets/calc_list.dart';
 import './screens/square.dart';
 import './screens/rectangle.dart';
 import './screens/triangle_right_angled.dart';
+import './models/colors.dart';
 
 void main() => runApp(MyApp());
+
 
 class MyApp extends StatelessWidget {
   @override
@@ -17,18 +19,19 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Math App",
       theme: ThemeData(
-        primarySwatch: Colors.red,
-        accentColor: Colors.redAccent,
-        scaffoldBackgroundColor: Colors.white,
+        primarySwatch: primaryWhite,
+        accentColor: primaryWhite,
+        scaffoldBackgroundColor: primaryWhite,
         fontFamily: 'Quicksand',
         textTheme: ThemeData.light().textTheme.copyWith(
               headline6: TextStyle(
                 fontFamily: 'OpenSans',
                 fontSize: 18,
+                color: primaryBlack,
                 fontWeight: FontWeight.bold,
               ),
               button: TextStyle(
-                color: Colors.white,
+                color: primaryBlack,
               ),
             ),
         appBarTheme: AppBarTheme(
@@ -41,18 +44,19 @@ class MyApp extends StatelessWidget {
         ),
       ),
       darkTheme: ThemeData(
-        primarySwatch: Color(0xFF000000),
-        accentColor: Colors.white,
-        scaffoldBackgroundColor: Colors.black,
+        primarySwatch: primaryBlack,
+        accentColor: primaryBlack,
+        scaffoldBackgroundColor: primaryBlack,
         fontFamily: 'Quicksand',
         textTheme: ThemeData.light().textTheme.copyWith(
               headline6: TextStyle(
                 fontFamily: 'OpenSans',
                 fontSize: 18,
+                color: primaryWhite,
                 fontWeight: FontWeight.bold,
               ),
               button: TextStyle(
-                color: Colors.white,
+                color: primaryWhite,
               ),
             ),
         appBarTheme: AppBarTheme(
@@ -75,7 +79,7 @@ class MathHomePage extends StatefulWidget {
 }
 
 class _MathHomePageState extends State<MathHomePage> {
-  var calculators = [
+  var _calculators = [
     Calculator(
       title: 'Square',
       screen: SquareScreen(),
@@ -97,14 +101,20 @@ class _MathHomePageState extends State<MathHomePage> {
   Widget build(BuildContext context) {
     final PreferredSizeWidget appBar = Platform.isAndroid
         ? AppBar(
-            title: Text('Math App'),
+            title: Text(
+              'Math App',
+              style: Theme.of(context).textTheme.headline6,
+            ),
           )
         : CupertinoNavigationBar(
-            middle: Text('Math App'),
+            middle: Text(
+              'Math App',
+              style: Theme.of(context).textTheme.headline6,
+            ),
           );
 
     final pageBody = SafeArea(
-      child: CalculatorList(calculators),
+      child: CalculatorList(_calculators),
     );
 
     return Platform.isAndroid
