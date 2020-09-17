@@ -1,55 +1,29 @@
 import 'dart:io';
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-import '../widgets/forms/square.dart';
-import './main_screen.dart';
+class MainScreen extends StatelessWidget {
+  final String _appBarTitle;
+  final Widget _formWidget;
+  final List<Widget> _widgetList;
+  final Function _clearDataFunction;
+  final Function _calculateDataFunction;
 
-class SquareScreen extends StatefulWidget {
-  @override
-  _SquareScreenState createState() => _SquareScreenState();
-}
-
-class _SquareScreenState extends State<SquareScreen> {
-  final _squareSide = TextEditingController();
-  final _squareDiagonal = TextEditingController();
-
-  void _submitData() {
-    if (_squareSide.text.isEmpty && _squareDiagonal.text.isEmpty) {
-      return;
-    } else if (_squareDiagonal.text.isEmpty) {
-      setState(() {
-        _squareDiagonal.text =
-            (double.parse(_squareSide.text) * sqrt(2)).toString();
-      });
-    } else if (_squareSide.text.isEmpty) {
-      setState(() {
-        _squareDiagonal.text =
-            (double.parse(_squareDiagonal.text) / sqrt(2)).toString();
-      });
-    }
-  }
-
-  void _clearData() {
-    _squareSide.clear();
-    _squareDiagonal.clear();
-  }
+  MainScreen(this._appBarTitle, this._formWidget, this._widgetList,
+      this._clearDataFunction, this._calculateDataFunction);
 
   @override
   Widget build(BuildContext context) {
     var mediaQuery = MediaQuery.of(context);
-    MainScreen('Squares',FormSquare(),)
-
 
     final PreferredSizeWidget appBar = Platform.isAndroid
         ? AppBar(
             toolbarHeight: mediaQuery.size.height * 0.075,
-            title: Text('Squares'),
+            title: Text(_appBarTitle),
           )
         : CupertinoNavigationBar(
-            middle: Text('Squares'),
+            middle: Text(_appBarTitle),
           );
 
     final pageBody = SafeArea(
@@ -66,30 +40,10 @@ class _SquareScreenState extends State<SquareScreen> {
               width: mediaQuery.size.width,
               height: mediaQuery.size.height * 0.3,
               child: Center(
-                child: FormSquare(),
+                child: _formWidget,
               ),
             ),
-            Container(
-              width: mediaQuery.size.width,
-              height: mediaQuery.size.height * 0.1,
-              child: TextField(
-                decoration: InputDecoration(labelText: 'Enter Side of Square'),
-                keyboardType: TextInputType.number,
-                controller: _squareSide,
-                onSubmitted: (_) => _submitData(),
-              ),
-            ),
-            Container(
-              width: mediaQuery.size.width,
-              height: mediaQuery.size.height * 0.1,
-              child: TextField(
-                decoration:
-                    InputDecoration(labelText: 'Enter Diagonal of Square'),
-                keyboardType: TextInputType.number,
-                controller: _squareDiagonal,
-                onSubmitted: (_) => _submitData(),
-              ),
-            ),
+            ..._widgetList,
             Container(
               width: mediaQuery.size.width,
               height: mediaQuery.size.height * 0.075,
@@ -101,7 +55,7 @@ class _SquareScreenState extends State<SquareScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   FlatButton(
-                    onPressed: _clearData,
+                    onPressed: _clearDataFunction,
                     child: Text('Clear'),
                     padding: EdgeInsets.all(10),
                     color: Theme.of(context).primaryColor,
@@ -112,7 +66,7 @@ class _SquareScreenState extends State<SquareScreen> {
                     padding: EdgeInsets.all(10),
                     color: Theme.of(context).primaryColor,
                     textColor: Theme.of(context).textTheme.button.color,
-                    onPressed: _submitData,
+                    onPressed: _calculateDataFunction,
                   ),
                 ],
               ),

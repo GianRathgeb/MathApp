@@ -45,6 +45,12 @@ class _RectangleScreenState extends State<RectangleScreen> {
     }
   }
 
+  void _clearData() {
+    _rectangleSideA.clear();
+    _rectangleSideB.clear();
+    _rectangleDiagonal.clear();
+  }
+
   @override
   Widget build(BuildContext context) {
     var mediaQuery = MediaQuery.of(context);
@@ -119,7 +125,7 @@ class _RectangleScreenState extends State<RectangleScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   FlatButton(
-                    onPressed: _submitData,
+                    onPressed: _clearData,
                     child: Text('Clear'),
                     padding: EdgeInsets.all(10),
                     color: Theme.of(context).primaryColor,

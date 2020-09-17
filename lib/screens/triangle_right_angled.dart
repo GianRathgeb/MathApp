@@ -43,6 +43,12 @@ class _TriangleRightAngledScreenState extends State<TriangleRightAngledScreen> {
     }
   }
 
+  void _clearData() {
+    _triangleSideA.clear();
+    _triangleSideB.clear();
+    _triangleSideC.clear();
+  }
+
   @override
   Widget build(BuildContext context) {
     var mediaQuery = MediaQuery.of(context);
@@ -117,7 +123,7 @@ class _TriangleRightAngledScreenState extends State<TriangleRightAngledScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   FlatButton(
-                    onPressed: _submitData,
+                    onPressed: _clearData,
                     child: Text('Clear'),
                     padding: EdgeInsets.all(10),
                     color: Theme.of(context).primaryColor,
