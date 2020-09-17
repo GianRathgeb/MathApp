@@ -1,10 +1,10 @@
-import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../widgets/forms/triangle_right_angled.dart';
+import './main_screen.dart';
 
 class TriangleRightAngledScreen extends StatefulWidget {
   @override
@@ -52,106 +52,40 @@ class _TriangleRightAngledScreenState extends State<TriangleRightAngledScreen> {
   @override
   Widget build(BuildContext context) {
     var mediaQuery = MediaQuery.of(context);
-
-    final PreferredSizeWidget appBar = Platform.isAndroid
-        ? AppBar(
-            toolbarHeight: mediaQuery.size.height * 0.075,
-            title: Text('Triangles (right-angled)'),
-          )
-        : CupertinoNavigationBar(
-            middle: Text('Triangles (right-angled)'),
-          );
-
-    final pageBody = SafeArea(
-      child: Container(
-        padding: EdgeInsets.only(
-          top: 20,
-          left: 10,
-          right: 10,
-          bottom: 10,
-        ),
-        child: ListView(
-          children: [
-            SizedBox(
-              width: mediaQuery.size.width,
-              height: mediaQuery.size.height * 0.3,
-              child: Center(
-                child: FormTriangleRightAngled(),
-              ),
-            ),
-            Container(
-              width: mediaQuery.size.width,
-              height: mediaQuery.size.height * 0.1,
-              child: TextField(
-                decoration:
-                    InputDecoration(labelText: 'Enter Side A of triangle'),
-                keyboardType: TextInputType.number,
-                controller: _triangleSideA,
-                onSubmitted: (_) => _submitData(),
-              ),
-            ),
-            Container(
-              width: mediaQuery.size.width,
-              height: mediaQuery.size.height * 0.1,
-              child: TextField(
-                decoration:
-                    InputDecoration(labelText: 'Enter Side B of triangle'),
-                keyboardType: TextInputType.number,
-                controller: _triangleSideB,
-                onSubmitted: (_) => _submitData(),
-              ),
-            ),
-            Container(
-              width: mediaQuery.size.width,
-              height: mediaQuery.size.height * 0.1,
-              child: TextField(
-                decoration:
-                    InputDecoration(labelText: 'Enter Hypothenuse of triangle'),
-                keyboardType: TextInputType.number,
-                controller: _triangleSideC,
-                onSubmitted: (_) => _submitData(),
-              ),
-            ),
-            Container(
-              width: mediaQuery.size.width,
-              height: mediaQuery.size.height * 0.075,
-              margin: EdgeInsets.only(
-                top: 20,
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  FlatButton(
-                    onPressed: _clearData,
-                    child: Text('Clear'),
-                    padding: EdgeInsets.all(10),
-                    color: Theme.of(context).primaryColor,
-                    textColor: Theme.of(context).textTheme.button.color,
-                  ),
-                  FlatButton(
-                    child: Text('Calculate missing values'),
-                    padding: EdgeInsets.all(10),
-                    color: Theme.of(context).primaryColor,
-                    textColor: Theme.of(context).textTheme.button.color,
-                    onPressed: _submitData,
-                  ),
-                ],
-              ),
-            )
-          ],
+    final List<Widget> _widgets = [
+      Container(
+        width: mediaQuery.size.width,
+        height: mediaQuery.size.height * 0.1,
+        child: TextField(
+          decoration: InputDecoration(labelText: 'Enter Side A of triangle'),
+          keyboardType: TextInputType.number,
+          controller: _triangleSideA,
+          onSubmitted: (_) => _submitData(),
         ),
       ),
-    );
-
-    return Platform.isAndroid
-        ? Scaffold(
-            appBar: appBar,
-            body: pageBody,
-          )
-        : CupertinoPageScaffold(
-            navigationBar: appBar,
-            child: pageBody,
-          );
+      Container(
+        width: mediaQuery.size.width,
+        height: mediaQuery.size.height * 0.1,
+        child: TextField(
+          decoration: InputDecoration(labelText: 'Enter Side B of triangle'),
+          keyboardType: TextInputType.number,
+          controller: _triangleSideB,
+          onSubmitted: (_) => _submitData(),
+        ),
+      ),
+      Container(
+        width: mediaQuery.size.width,
+        height: mediaQuery.size.height * 0.1,
+        child: TextField(
+          decoration:
+              InputDecoration(labelText: 'Enter Hypothenuse of triangle'),
+          keyboardType: TextInputType.number,
+          controller: _triangleSideC,
+          onSubmitted: (_) => _submitData(),
+        ),
+      ),
+    ];
+    return MainScreen('Triangle (right-angled)', FormTriangleRightAngled(), _widgets,
+        _clearData, _submitData);
   }
 }

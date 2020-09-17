@@ -1,10 +1,10 @@
-import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../widgets/forms/rectangle.dart';
+import './main_screen.dart';
 
 class RectangleScreen extends StatefulWidget {
   @override
@@ -54,106 +54,40 @@ class _RectangleScreenState extends State<RectangleScreen> {
   @override
   Widget build(BuildContext context) {
     var mediaQuery = MediaQuery.of(context);
-
-    final PreferredSizeWidget appBar = Platform.isAndroid
-        ? AppBar(
-            toolbarHeight: mediaQuery.size.height * 0.075,
-            title: Text('Rectangles'),
-          )
-        : CupertinoNavigationBar(
-            middle: Text('Rectangles'),
-          );
-
-    final pageBody = SafeArea(
-      child: Container(
-        padding: EdgeInsets.only(
-          top: 20,
-          left: 10,
-          right: 10,
-          bottom: 10,
-        ),
-        child: ListView(
-          children: [
-            SizedBox(
-              width: mediaQuery.size.width,
-              height: mediaQuery.size.height * 0.3,
-              child: Center(
-                child: FormRectangle(),
-              ),
-            ),
-            Container(
-              width: mediaQuery.size.width,
-              height: mediaQuery.size.height * 0.1,
-              child: TextField(
-                decoration:
-                    InputDecoration(labelText: 'Enter Side A of Rectangle'),
-                keyboardType: TextInputType.number,
-                controller: _rectangleSideA,
-                onSubmitted: (_) => _submitData(),
-              ),
-            ),
-            Container(
-              width: mediaQuery.size.width,
-              height: mediaQuery.size.height * 0.1,
-              child: TextField(
-                decoration:
-                    InputDecoration(labelText: 'Enter Side B of Rectangle'),
-                keyboardType: TextInputType.number,
-                controller: _rectangleSideB,
-                onSubmitted: (_) => _submitData(),
-              ),
-            ),
-            Container(
-              width: mediaQuery.size.width,
-              height: mediaQuery.size.height * 0.1,
-              child: TextField(
-                decoration:
-                    InputDecoration(labelText: 'Enter Diagonal of Rectangle'),
-                keyboardType: TextInputType.number,
-                controller: _rectangleDiagonal,
-                onSubmitted: (_) => _submitData(),
-              ),
-            ),
-            Container(
-              width: mediaQuery.size.width,
-              height: mediaQuery.size.height * 0.075,
-              margin: EdgeInsets.only(
-                top: 20,
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  FlatButton(
-                    onPressed: _clearData,
-                    child: Text('Clear'),
-                    padding: EdgeInsets.all(10),
-                    color: Theme.of(context).primaryColor,
-                    textColor: Theme.of(context).textTheme.button.color,
-                  ),
-                  FlatButton(
-                    child: Text('Calculate missing values'),
-                    padding: EdgeInsets.all(10),
-                    color: Theme.of(context).primaryColor,
-                    textColor: Theme.of(context).textTheme.button.color,
-                    onPressed: _submitData,
-                  ),
-                ],
-              ),
-            )
-          ],
+    final List<Widget> _widgets = [
+      Container(
+        width: mediaQuery.size.width,
+        height: mediaQuery.size.height * 0.1,
+        child: TextField(
+          decoration: InputDecoration(labelText: 'Enter Side A of Rectangle'),
+          keyboardType: TextInputType.number,
+          controller: _rectangleSideA,
+          onSubmitted: (_) => _submitData(),
         ),
       ),
-    );
+      Container(
+        width: mediaQuery.size.width,
+        height: mediaQuery.size.height * 0.1,
+        child: TextField(
+          decoration: InputDecoration(labelText: 'Enter Side B of Rectangle'),
+          keyboardType: TextInputType.number,
+          controller: _rectangleSideB,
+          onSubmitted: (_) => _submitData(),
+        ),
+      ),
+      Container(
+        width: mediaQuery.size.width,
+        height: mediaQuery.size.height * 0.1,
+        child: TextField(
+          decoration: InputDecoration(labelText: 'Enter Diagonal of Rectangle'),
+          keyboardType: TextInputType.number,
+          controller: _rectangleDiagonal,
+          onSubmitted: (_) => _submitData(),
+        ),
+      ),
+    ];
 
-    return Platform.isAndroid
-        ? Scaffold(
-            appBar: appBar,
-            body: pageBody,
-          )
-        : CupertinoPageScaffold(
-            navigationBar: appBar,
-            child: pageBody,
-          );
+    return MainScreen(
+        'Rectangle', FormRectangle(), _widgets, _clearData, _submitData);
   }
 }
