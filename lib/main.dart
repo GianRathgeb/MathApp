@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
         accentColor: darkThemeSettings['accentColor'],
         scaffoldBackgroundColor: darkThemeSettings['backgroundColor'],
         fontFamily: themeSettings['secondaryFont'],
-        textTheme: ThemeData.light().textTheme.copyWith(
+        textTheme: ThemeData.dark().textTheme.copyWith(
               headline6: TextStyle(
                 fontFamily: themeSettings['mainFont'],
                 fontSize: themeSettings['fontSize'],
@@ -61,7 +61,7 @@ class MyApp extends StatelessWidget {
               ),
             ),
         appBarTheme: AppBarTheme(
-          textTheme: ThemeData.light().textTheme.copyWith(
+          textTheme: ThemeData.dark().textTheme.copyWith(
                 headline6: TextStyle(
                   fontFamily: themeSettings['mainFont'],
                   fontSize: themeSettings['headlineFontSize'],

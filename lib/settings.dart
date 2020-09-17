@@ -17,7 +17,7 @@ final Map<String, dynamic> lightThemeSettings = {
 
 final Map<String, dynamic> darkThemeSettings = {
   'fontColor': primaryWhite,
-  'backgroundColor': primaryBlack,
+  'backgroundColor': primaryGrey[600],
   'primaryColor': primaryBlack,
   'accentColor': primaryBlack,
 };
