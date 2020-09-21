@@ -9,38 +9,43 @@ class CalculatorList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var mediaQuery = MediaQuery.of(context);
+
     return ListView.builder(
       itemCount: calculatorsList.length,
       itemBuilder: (ctx, index) {
-        return InkWell(
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => calculatorsList[index].screen),
-            );
-          },
-          child: Card(
-            child: Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: AssetImage(
-                    calculatorsList[index].image.toString(),
+        return Container(
+          height: mediaQuery.size.height * 0.25,
+          child: InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => calculatorsList[index].screen),
+              );
+            },
+            child: Card(
+              child: Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: AssetImage(
+                      calculatorsList[index].image.toString(),
+                    ),
                   ),
                 ),
-              ),
-              child: ListTile(
-                leading: Text(
-                  calculatorsList[index].title.toString(),
-                  style: TextStyle(
-                    color: Theme.of(context).textTheme.headline6.color,
-                    fontSize: 20,
+                child: ListTile(
+                  title: Center(
+                    child: Text(
+                      calculatorsList[index].title.toString(),
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context).appBarTheme.textTheme.headline6,
+                      ),
+                  ),
                   ),
                 ),
               ),
             ),
-          ),
-        );
+          );
       },
     );
   }

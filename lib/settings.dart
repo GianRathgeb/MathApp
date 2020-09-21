@@ -2,7 +2,7 @@ import './models/colors.dart';
 
 
 final Map<String, dynamic> themeSettings = {
-  'headlineFontSize': 20.0,
+  'headlineFontSize': 22.0,
   'fontSize': 18.0,
   'mainFont': 'OpenSans',
   'secondaryFont': 'Quicksand',
@@ -17,7 +17,7 @@ final Map<String, dynamic> lightThemeSettings = {
 
 final Map<String, dynamic> darkThemeSettings = {
   'fontColor': primaryWhite,
-  'backgroundColor': primaryGrey[600],
+  'backgroundColor': primaryBlack[400],
   'primaryColor': primaryBlack,
   'accentColor': primaryBlack,
 };

@@ -19,7 +19,6 @@ class MainScreen extends StatelessWidget {
 
     final PreferredSizeWidget appBar = Platform.isAndroid
         ? AppBar(
-            toolbarHeight: mediaQuery.size.height * 0.075,
             title: Text(_appBarTitle),
           )
         : CupertinoNavigationBar(
