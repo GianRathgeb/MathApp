@@ -19,10 +19,16 @@ class MainScreen extends StatelessWidget {
 
     final PreferredSizeWidget appBar = Platform.isAndroid
         ? AppBar(
-            title: Text(_appBarTitle),
+            title: Text(
+              _appBarTitle,
+              style: Theme.of(context).appBarTheme.textTheme.headline6,
+            ),
           )
         : CupertinoNavigationBar(
-            middle: Text(_appBarTitle),
+            middle: Text(
+              _appBarTitle,
+              style: Theme.of(context).appBarTheme.textTheme.headline6,
+            ),
           );
 
     final pageBody = SafeArea(

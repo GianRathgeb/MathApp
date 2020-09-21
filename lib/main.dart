@@ -13,7 +13,6 @@ import 'settings.dart';
 
 void main() => runApp(MyApp());
 
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -40,6 +39,7 @@ class MyApp extends StatelessWidget {
                 headline6: TextStyle(
                   fontFamily: themeSettings['mainFont'],
                   fontSize: themeSettings['headlineFontSize'],
+                  color: lightThemeSettings['fontColor'],
                 ),
               ),
         ),
@@ -63,10 +63,9 @@ class MyApp extends StatelessWidget {
         appBarTheme: AppBarTheme(
           textTheme: ThemeData.dark().textTheme.copyWith(
                 headline6: TextStyle(
-                  fontFamily: themeSettings['mainFont'],
-                  fontSize: themeSettings['headlineFontSize'],
-                  color: darkThemeSettings['fontColor']
-                ),
+                    fontFamily: themeSettings['mainFont'],
+                    fontSize: themeSettings['headlineFontSize'],
+                    color: darkThemeSettings['fontColor']),
               ),
         ),
       ),
@@ -118,6 +117,7 @@ class _MathHomePageState extends State<MathHomePage> {
     final pageBody = SafeArea(
       child: CalculatorList(_calculators),
     );
+
     return Platform.isAndroid
         ? Scaffold(
             resizeToAvoidBottomInset: false,
