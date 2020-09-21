@@ -75,7 +75,6 @@ class MainScreen extends StatelessWidget {
         ),
       ),
     );
-
     return Platform.isAndroid
         ? Scaffold(
             appBar: appBar,
