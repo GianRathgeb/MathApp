@@ -88,6 +88,11 @@ class _RectangleScreenState extends State<RectangleScreen> {
     ];
 
     return MainScreen(
-        'Rectangle', FormRectangle(), _widgets, _clearData, _submitData);
+      'Rectangle',
+      FormRectangle(),
+      _widgets,
+      _clearData,
+      _submitData,
+    );
   }
 }

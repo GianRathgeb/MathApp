@@ -55,14 +55,19 @@ class _SquareScreenState extends State<SquareScreen> {
         width: mediaQuery.size.width,
         height: mediaQuery.size.height * 0.1,
         child: TextField(
-          decoration:
-          InputDecoration(labelText: 'Enter Diagonal of Square'),
+          decoration: InputDecoration(labelText: 'Enter Diagonal of Square'),
           keyboardType: TextInputType.number,
           controller: _squareDiagonal,
           onSubmitted: (_) => _submitData(),
         ),
       ),
     ];
-    return MainScreen('Squares',FormSquare(),_widgets,_clearData,_submitData);
+    return MainScreen(
+      'Squares',
+      FormSquare(),
+      _widgets,
+      _clearData,
+      _submitData,
+    );
   }
 }

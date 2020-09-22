@@ -85,7 +85,12 @@ class _TriangleRightAngledScreenState extends State<TriangleRightAngledScreen> {
         ),
       ),
     ];
-    return MainScreen('Triangle (right-angled)', FormTriangleRightAngled(), _widgets,
-        _clearData, _submitData);
+    return MainScreen(
+      'Triangle (right-angled)',
+      FormTriangleRightAngled(),
+      _widgets,
+      _clearData,
+      _submitData,
+    );
   }
 }
