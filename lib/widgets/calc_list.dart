@@ -5,6 +5,7 @@ import '../models/calculator.dart';
 class CalculatorList extends StatelessWidget {
 
   final List<Calculator> calculatorsList;
+
   CalculatorList(this.calculatorsList);
 
   @override
