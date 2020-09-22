@@ -20,12 +20,25 @@ class CalculatorList extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => calculatorsList[index].screen),
+                MaterialPageRoute(
+                    builder: (context) => calculatorsList[index].screen),
               );
             },
-            child: Card(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                vertical: 10,
+                horizontal: 10,
+              ),
               child: Container(
                 decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  boxShadow: [
+                    BoxShadow(
+                      offset: Offset(2.5, 5),
+                      color: Colors.black,
+                      blurRadius: 5,
+                    ),
+                  ],
                   image: DecorationImage(
                     fit: BoxFit.cover,
                     image: AssetImage(
@@ -39,13 +52,13 @@ class CalculatorList extends StatelessWidget {
                       calculatorsList[index].title.toString(),
                       textAlign: TextAlign.center,
                       style: Theme.of(context).appBarTheme.textTheme.headline6,
-                      ),
-                  ),
+                    ),
                   ),
                 ),
               ),
             ),
-          );
+          ),
+        );
       },
     );
   }

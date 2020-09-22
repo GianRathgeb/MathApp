@@ -8,6 +8,7 @@ import './widgets/calc_list.dart';
 import './screens/square.dart';
 import './screens/rectangle.dart';
 import './screens/triangle_right_angled.dart';
+import './screens/circle.dart';
 
 import 'settings.dart';
 
@@ -92,9 +93,13 @@ class _MathHomePageState extends State<MathHomePage> {
       image: 'assets/images/rectangles.jpg',
     ),
     Calculator(
-      title: 'Triangles (right-angled)',
+      title: 'Triangle (right-angled)',
       screen: TriangleRightAngledScreen(),
       image: 'assets/images/triangles.png',
+    ),Calculator(
+      title: 'Circle',
+      screen: CircleScreen(),
+      image: 'assets/images/circles.jpg',
     ),
   ];
 
