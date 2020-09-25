@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../models/calculator.dart';
 
 class CalculatorList extends StatelessWidget {
-
   final List<Calculator> calculatorsList;
 
   CalculatorList(this.calculatorsList);
@@ -27,23 +26,28 @@ class CalculatorList extends StatelessWidget {
             },
             child: Padding(
               padding: const EdgeInsets.symmetric(
-                vertical: 10,
-                horizontal: 10,
+                vertical: 5,
+                horizontal: 7.5,
               ),
               child: Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(5),
                   boxShadow: [
                     BoxShadow(
-                      offset: Offset(2.5, 5),
-                      color: Theme.of(context).textTheme.headline6.color,
-                      blurRadius: 5,
+                      offset: Offset(2, 2),
+                      color: Theme.of(context).textTheme.headline6.color.withOpacity(0.6),
+                      blurRadius: 3,
                     ),
                   ],
                   image: DecorationImage(
                     fit: BoxFit.cover,
                     image: AssetImage(
                       calculatorsList[index].image.toString(),
+                    ),
+                    // Detect which theme is activated
+                    colorFilter: ColorFilter.mode(
+                      Theme.of(context).scaffoldBackgroundColor.withOpacity(0.5),
+                      BlendMode.srcOver,
                     ),
                   ),
                 ),

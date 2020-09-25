@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Math App",
       theme: ThemeData(
+        brightness: Brightness.light,
         primarySwatch: lightThemeSettings['primaryColor'],
         accentColor: lightThemeSettings['accentColor'],
         scaffoldBackgroundColor: lightThemeSettings['backgroundColor'],
@@ -46,6 +47,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       darkTheme: ThemeData(
+        brightness: Brightness.dark,
         primarySwatch: darkThemeSettings['primaryColor'],
         accentColor: darkThemeSettings['accentColor'],
         scaffoldBackgroundColor: darkThemeSettings['backgroundColor'],
