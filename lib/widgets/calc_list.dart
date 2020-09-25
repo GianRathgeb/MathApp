@@ -35,7 +35,7 @@ class CalculatorList extends StatelessWidget {
                   boxShadow: [
                     BoxShadow(
                       offset: Offset(2, 2),
-                      color: Theme.of(context).textTheme.headline6.color.withOpacity(0.6),
+                      color: Theme.of(context).textTheme.headline6.color.withOpacity(0.5),
                       blurRadius: 3,
                     ),
                   ],
