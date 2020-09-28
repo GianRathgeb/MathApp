@@ -9,3 +9,7 @@ Features to add:
     * Interactive side lengths in picture
 
 
+More things to add / change:
+    * Better design
+
+
