@@ -11,5 +11,5 @@ Features to add:
 
 More things to add / change:
     * Better design
-
+    * Better overview of the different "programs"
 
