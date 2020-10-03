@@ -75,7 +75,25 @@ class MainScreen extends StatelessWidget {
                   ),
                 ],
               ),
-            )
+            ),
+            Container(
+                margin: EdgeInsets.symmetric(
+                  vertical: 20,
+                  horizontal: 0,
+                ),
+                color: Theme.of(context).scaffoldBackgroundColor,
+                child: Column(
+                  children: [
+                    Text("Solution"),
+                    Container(
+                      margin: EdgeInsets.symmetric(
+                        vertical: 10,
+                        horizontal: 0,
+                      ),
+                      child: Text('How to solution'),
+                    ),
+                  ],
+                ))
           ],
         ),
       ),
