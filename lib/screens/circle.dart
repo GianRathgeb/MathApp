@@ -15,18 +15,22 @@ class _CircleScreenState extends State<CircleScreen> {
   final _circleRadius = TextEditingController();
   final _circlePerimeter = TextEditingController();
 
+  String solution = '';
+
   void _submitData() {
     if (_circleRadius.text.isEmpty && _circlePerimeter.text.isEmpty) {
       return;
     } else if (_circlePerimeter.text.isEmpty) {
       setState(() {
-        _circlePerimeter.text =
-            (double.parse(_circleRadius.text) * 2 * pi).toString();
+        String result = (double.parse(_circleRadius.text) * 2 * pi).toString();
+        _circlePerimeter.text = result;
+        solution = "${double.parse(_circleRadius.text)} * 2 * $pi";
       });
     } else if (_circleRadius.text.isEmpty) {
       setState(() {
-        _circlePerimeter.text =
-            (double.parse(_circlePerimeter.text) / 2 / pi).toString();
+        String result =  (double.parse(_circlePerimeter.text) / 2 / pi).toString();
+        _circlePerimeter.text = result;
+        solution = "${double.parse(_circlePerimeter.text)} / 2 / $pi";
       });
     }
   }
@@ -68,6 +72,7 @@ class _CircleScreenState extends State<CircleScreen> {
       _widgets,
       _clearData,
       _submitData,
+      solution,
     );
   }
 }

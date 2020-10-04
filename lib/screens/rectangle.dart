@@ -16,6 +16,8 @@ class _RectangleScreenState extends State<RectangleScreen> {
   final _rectangleSideB = TextEditingController();
   final _rectangleDiagonal = TextEditingController();
 
+  String solution = '';
+
   void _submitData() {
     if (_rectangleSideA.text.isEmpty &&
         _rectangleSideB.text.isEmpty &&
@@ -23,24 +25,30 @@ class _RectangleScreenState extends State<RectangleScreen> {
       return;
     } else if (_rectangleDiagonal.text.isEmpty) {
       setState(() {
-        _rectangleDiagonal.text = (sqrt(
-                pow(double.parse(_rectangleSideA.text), 2) +
-                    pow(double.parse(_rectangleSideB.text), 2)))
+        String result = (sqrt(pow(double.parse(_rectangleSideA.text), 2) +
+                pow(double.parse(_rectangleSideB.text), 2)))
             .toString();
+        _rectangleDiagonal.text = result;
+        solution =
+            "SQRT((${double.parse(_rectangleSideA.text)}) ^ 2 + (${double.parse(_rectangleSideB.text)}) ^ 2) = $result";
       });
     } else if (_rectangleSideA.text.isEmpty) {
       setState(() {
-        _rectangleSideA.text = (sqrt(
-                pow(double.parse(_rectangleDiagonal.text), 2) -
-                    pow(double.parse(_rectangleSideB.text), 2)))
+        String result = (sqrt(pow(double.parse(_rectangleDiagonal.text), 2) -
+                pow(double.parse(_rectangleSideB.text), 2)))
             .toString();
+        _rectangleSideA.text = result;
+        solution =
+            "SQRT((${double.parse(_rectangleDiagonal.text)}) ^ 2 - (${double.parse(_rectangleSideB.text)}) ^ 2) = $result";
       });
     } else if (_rectangleSideB.text.isEmpty) {
       setState(() {
-        _rectangleSideB.text = (sqrt(
-                pow(double.parse(_rectangleDiagonal.text), 2) -
-                    pow(double.parse(_rectangleSideA.text), 2)))
+        String result = (sqrt(pow(double.parse(_rectangleDiagonal.text), 2) -
+                pow(double.parse(_rectangleSideA.text), 2)))
             .toString();
+        _rectangleSideB.text = result;
+        solution =
+            "SQRT((${double.parse(_rectangleDiagonal.text)}) ^ 2 - (${double.parse(_rectangleSideA.text)}) ^ 2) = $result";
       });
     }
   }
@@ -93,6 +101,7 @@ class _RectangleScreenState extends State<RectangleScreen> {
       _widgets,
       _clearData,
       _submitData,
+      solution,
     );
   }
 }

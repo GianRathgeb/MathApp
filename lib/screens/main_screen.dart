@@ -9,9 +9,11 @@ class MainScreen extends StatelessWidget {
   final List<Widget> _widgetList;
   final Function _clearDataFunction;
   final Function _calculateDataFunction;
+  final String solution;
 
   MainScreen(this._appBarTitle, this._formWidget, this._widgetList,
-      this._clearDataFunction, this._calculateDataFunction);
+      this._clearDataFunction, this._calculateDataFunction, this.solution);
+
 
   @override
   Widget build(BuildContext context) {
@@ -90,7 +92,7 @@ class MainScreen extends StatelessWidget {
                         vertical: 10,
                         horizontal: 0,
                       ),
-                      child: Text('How to solution'),
+                      child: Text(solution),
                     ),
                   ],
                 ))
