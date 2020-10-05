@@ -15,18 +15,23 @@ class _SquareScreenState extends State<SquareScreen> {
   final _squareSide = TextEditingController();
   final _squareDiagonal = TextEditingController();
 
+  String solution = '';
+
   void _submitData() {
     if (_squareSide.text.isEmpty && _squareDiagonal.text.isEmpty) {
       return;
     } else if (_squareDiagonal.text.isEmpty) {
       setState(() {
-        _squareDiagonal.text =
-            (double.parse(_squareSide.text) * sqrt(2)).toString();
+        String result = (double.parse(_squareSide.text) * sqrt(2)).toString();
+        _squareDiagonal.text = result;
+        solution = "${double.parse(_squareSide.text)} * SQRT(2)";
       });
     } else if (_squareSide.text.isEmpty) {
       setState(() {
-        _squareDiagonal.text =
+        String result =
             (double.parse(_squareDiagonal.text) / sqrt(2)).toString();
+        _squareDiagonal.text = result;
+        solution = "$double.parse(_squareDiagonal.text)} / SQRT(2)";
       });
     }
   }
@@ -68,6 +73,7 @@ class _SquareScreenState extends State<SquareScreen> {
       _widgets,
       _clearData,
       _submitData,
+      solution,
     );
   }
 }
