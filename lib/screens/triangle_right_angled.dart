@@ -17,6 +17,8 @@ class _TriangleRightAngledScreenState extends State<TriangleRightAngledScreen> {
   final _triangleSideB = TextEditingController();
   final _triangleSideC = TextEditingController();
 
+  String solution = '';
+
   void _submitData() {
     if (_triangleSideA.text.isEmpty &&
         _triangleSideB.text.isEmpty &&
@@ -24,21 +26,27 @@ class _TriangleRightAngledScreenState extends State<TriangleRightAngledScreen> {
       return;
     } else if (_triangleSideC.text.isEmpty) {
       setState(() {
-        _triangleSideC.text = (sqrt(pow(double.parse(_triangleSideA.text), 2) +
-                pow(double.parse(_triangleSideB.text), 2)))
+        String result =  (sqrt(pow(double.parse(_triangleSideA.text), 2) +
+            pow(double.parse(_triangleSideB.text), 2)))
             .toString();
+        _triangleSideC.text = result;
+        solution = "SQRT((${double.parse(_triangleSideA.text)} ^ 2) + (${double.parse(_triangleSideB.text)} ^ 2)) = $result";
       });
     } else if (_triangleSideA.text.isEmpty) {
       setState(() {
-        _triangleSideA.text = (sqrt(pow(double.parse(_triangleSideC.text), 2) -
-                pow(double.parse(_triangleSideB.text), 2)))
+        String result = (sqrt(pow(double.parse(_triangleSideC.text), 2) -
+            pow(double.parse(_triangleSideB.text), 2)))
             .toString();
+        _triangleSideA.text = result;
+        solution = "SQRT((${double.parse(_triangleSideC.text)} ^ 2) - (${double.parse(_triangleSideB.text)} ^ 2)) = $result";
       });
     } else if (_triangleSideB.text.isEmpty) {
       setState(() {
-        _triangleSideB.text = (sqrt(pow(double.parse(_triangleSideC.text), 2) -
-                pow(double.parse(_triangleSideA.text), 2)))
+        String result = (sqrt(pow(double.parse(_triangleSideC.text), 2) -
+            pow(double.parse(_triangleSideA.text), 2)))
             .toString();
+        _triangleSideB.text = result;
+        solution = "SQRT((${double.parse(_triangleSideC.text)} ^ 2) - (${double.parse(_triangleSideA.text)} ^ 2)) = $result";
       });
     }
   }
@@ -91,6 +99,7 @@ class _TriangleRightAngledScreenState extends State<TriangleRightAngledScreen> {
       _widgets,
       _clearData,
       _submitData,
+      solution,
     );
   }
 }

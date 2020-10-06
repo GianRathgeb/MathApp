@@ -30,7 +30,7 @@ class _RectangleScreenState extends State<RectangleScreen> {
             .toString();
         _rectangleDiagonal.text = result;
         solution =
-            "SQRT((${double.parse(_rectangleSideA.text)}) ^ 2 + (${double.parse(_rectangleSideB.text)}) ^ 2) = $result";
+            "SQRT((${double.parse(_rectangleSideA.text)} ^ 2) + (${double.parse(_rectangleSideB.text)} ^ 2)) = $result";
       });
     } else if (_rectangleSideA.text.isEmpty) {
       setState(() {

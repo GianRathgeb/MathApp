@@ -24,13 +24,13 @@ class _CircleScreenState extends State<CircleScreen> {
       setState(() {
         String result = (double.parse(_circleRadius.text) * 2 * pi).toString();
         _circlePerimeter.text = result;
-        solution = "${double.parse(_circleRadius.text)} * 2 * $pi";
+        solution = "${double.parse(_circleRadius.text)} * 2 * $pi = $result";
       });
     } else if (_circleRadius.text.isEmpty) {
       setState(() {
         String result =  (double.parse(_circlePerimeter.text) / 2 / pi).toString();
         _circlePerimeter.text = result;
-        solution = "${double.parse(_circlePerimeter.text)} / 2 / $pi";
+        solution = "${double.parse(_circlePerimeter.text)} / 2 / $pi = $result";
       });
     }
   }

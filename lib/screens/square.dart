@@ -24,14 +24,14 @@ class _SquareScreenState extends State<SquareScreen> {
       setState(() {
         String result = (double.parse(_squareSide.text) * sqrt(2)).toString();
         _squareDiagonal.text = result;
-        solution = "${double.parse(_squareSide.text)} * SQRT(2)";
+        solution = "${double.parse(_squareSide.text)} * SQRT(2) = $result";
       });
     } else if (_squareSide.text.isEmpty) {
       setState(() {
         String result =
             (double.parse(_squareDiagonal.text) / sqrt(2)).toString();
         _squareDiagonal.text = result;
-        solution = "$double.parse(_squareDiagonal.text)} / SQRT(2)";
+        solution = "$double.parse(_squareDiagonal.text)} / SQRT(2) = $result";
       });
     }
   }
