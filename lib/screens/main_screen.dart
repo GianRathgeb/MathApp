@@ -83,7 +83,6 @@ class MainScreen extends StatelessWidget {
                   vertical: 20,
                   horizontal: 0,
                 ),
-                color: Theme.of(context).scaffoldBackgroundColor,
                 child: Column(
                   children: [
                     Text("Solution"),
