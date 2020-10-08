@@ -14,7 +14,6 @@ class MainScreen extends StatelessWidget {
   MainScreen(this._appBarTitle, this._formWidget, this._widgetList,
       this._clearDataFunction, this._calculateDataFunction, this.solution);
 
-
   @override
   Widget build(BuildContext context) {
     var mediaQuery = MediaQuery.of(context);
@@ -79,22 +78,23 @@ class MainScreen extends StatelessWidget {
               ),
             ),
             Container(
-                margin: EdgeInsets.symmetric(
-                  vertical: 20,
-                  horizontal: 0,
-                ),
-                child: Column(
-                  children: [
-                    Text("Solution"),
-                    Container(
-                      margin: EdgeInsets.symmetric(
-                        vertical: 10,
-                        horizontal: 0,
-                      ),
-                      child: Text(solution),
+              margin: EdgeInsets.symmetric(
+                vertical: 20,
+                horizontal: 0,
+              ),
+              child: Column(
+                children: [
+                  Text("Solution"),
+                  Container(
+                    margin: EdgeInsets.symmetric(
+                      vertical: 10,
+                      horizontal: 0,
                     ),
-                  ],
-                ))
+                    child: Text(solution),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
