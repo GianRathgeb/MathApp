@@ -84,7 +84,12 @@ class MainScreen extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  Text("Solution"),
+                  Text(
+                    "Solution",
+                    style: TextStyle(
+                      fontSize: Theme.of(context).textTheme.headline6.fontSize,
+                    ),
+                  ),
                   Container(
                     margin: EdgeInsets.symmetric(
                       vertical: 10,
