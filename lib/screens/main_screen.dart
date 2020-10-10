@@ -62,12 +62,18 @@ class MainScreen extends StatelessWidget {
                 children: [
                   FlatButton(
                     onPressed: _clearDataFunction,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5),
+                    ),
                     child: Text('Clear'),
                     padding: EdgeInsets.all(10),
                     color: Theme.of(context).primaryColor,
                     textColor: Theme.of(context).textTheme.button.color,
                   ),
                   FlatButton(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5),
+                    ),
                     child: Text('Calculate missing values'),
                     padding: EdgeInsets.all(10),
                     color: Theme.of(context).primaryColor,
