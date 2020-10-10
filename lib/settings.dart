@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import './models/colors.dart';
 
-
 final Map<String, dynamic> themeSettings = {
   'headlineFontSize': 22.0,
   'fontSize': 18.0,
