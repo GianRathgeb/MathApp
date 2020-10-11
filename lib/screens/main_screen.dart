@@ -63,7 +63,7 @@ class MainScreen extends StatelessWidget {
                   FlatButton(
                     onPressed: _clearDataFunction,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(3),
+                      borderRadius: BorderRadius.circular(3.5),
                     ),
                     child: Text('Clear'),
                     padding: EdgeInsets.all(10),
@@ -72,7 +72,7 @@ class MainScreen extends StatelessWidget {
                   ),
                   FlatButton(
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(3),
+                      borderRadius: BorderRadius.circular(3.5),
                     ),
                     child: Text('Calculate missing values'),
                     padding: EdgeInsets.all(10),
