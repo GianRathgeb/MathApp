@@ -39,6 +39,7 @@ class _SquareScreenState extends State<SquareScreen> {
   void _clearData() {
     _squareSide.clear();
     _squareDiagonal.clear();
+    solution = '';
   }
 
   @override

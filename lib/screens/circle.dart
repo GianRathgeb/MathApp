@@ -38,6 +38,7 @@ class _CircleScreenState extends State<CircleScreen> {
   void _clearData() {
     _circleRadius.clear();
     _circlePerimeter.clear();
+    solution = '';
   }
 
   @override

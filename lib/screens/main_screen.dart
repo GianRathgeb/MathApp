@@ -91,7 +91,7 @@ class MainScreen extends StatelessWidget {
               child: Column(
                 children: [
                   Text(
-                    "Solution",
+                    solution == '' ? '' : "Solution",
                     style: TextStyle(
                       fontSize: Theme.of(context).textTheme.headline6.fontSize,
                     ),

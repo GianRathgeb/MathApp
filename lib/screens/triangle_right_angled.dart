@@ -55,6 +55,7 @@ class _TriangleRightAngledScreenState extends State<TriangleRightAngledScreen> {
     _triangleSideA.clear();
     _triangleSideB.clear();
     _triangleSideC.clear();
+    solution = '';
   }
 
   @override

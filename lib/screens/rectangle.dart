@@ -57,6 +57,7 @@ class _RectangleScreenState extends State<RectangleScreen> {
     _rectangleSideA.clear();
     _rectangleSideB.clear();
     _rectangleDiagonal.clear();
+    solution = '';
   }
 
   @override
