@@ -28,7 +28,8 @@ class _CircleScreenState extends State<CircleScreen> {
       });
     } else if (_circleRadius.text.isEmpty) {
       setState(() {
-        String result =  (double.parse(_circlePerimeter.text) / 2 / pi).toString();
+        String result =
+            (double.parse(_circlePerimeter.text) / 2 / pi).toString();
         _circlePerimeter.text = result;
         solution = "${double.parse(_circlePerimeter.text)} / 2 / $pi = $result";
       });
@@ -36,9 +37,11 @@ class _CircleScreenState extends State<CircleScreen> {
   }
 
   void _clearData() {
-    _circleRadius.clear();
-    _circlePerimeter.clear();
-    solution = '';
+    setState(() {
+      _circleRadius.clear();
+      _circlePerimeter.clear();
+      solution = '';
+    });
   }
 
   @override

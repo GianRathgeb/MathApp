@@ -26,37 +26,41 @@ class _TriangleRightAngledScreenState extends State<TriangleRightAngledScreen> {
       return;
     } else if (_triangleSideC.text.isEmpty) {
       setState(() {
-        String result =  (sqrt(pow(double.parse(_triangleSideA.text), 2) +
-            pow(double.parse(_triangleSideB.text), 2)))
+        String result = (sqrt(pow(double.parse(_triangleSideA.text), 2) +
+                pow(double.parse(_triangleSideB.text), 2)))
             .toString();
         _triangleSideC.text = result;
-        solution = "SQRT((${double.parse(_triangleSideA.text)} ^ 2) + (${double.parse(_triangleSideB.text)} ^ 2)) = $result";
+        solution =
+            "SQRT((${double.parse(_triangleSideA.text)} ^ 2) + (${double.parse(_triangleSideB.text)} ^ 2)) = $result";
       });
     } else if (_triangleSideA.text.isEmpty) {
       setState(() {
         String result = (sqrt(pow(double.parse(_triangleSideC.text), 2) -
-            pow(double.parse(_triangleSideB.text), 2)))
+                pow(double.parse(_triangleSideB.text), 2)))
             .toString();
         _triangleSideA.text = result;
-        solution = "SQRT((${double.parse(_triangleSideC.text)} ^ 2) - (${double.parse(_triangleSideB.text)} ^ 2)) = $result";
+        solution =
+            "SQRT((${double.parse(_triangleSideC.text)} ^ 2) - (${double.parse(_triangleSideB.text)} ^ 2)) = $result";
       });
     } else if (_triangleSideB.text.isEmpty) {
       setState(() {
         String result = (sqrt(pow(double.parse(_triangleSideC.text), 2) -
-            pow(double.parse(_triangleSideA.text), 2)))
+                pow(double.parse(_triangleSideA.text), 2)))
             .toString();
         _triangleSideB.text = result;
-        solution = "SQRT((${double.parse(_triangleSideC.text)} ^ 2) - (${double.parse(_triangleSideA.text)} ^ 2)) = $result";
+        solution =
+            "SQRT((${double.parse(_triangleSideC.text)} ^ 2) - (${double.parse(_triangleSideA.text)} ^ 2)) = $result";
       });
     }
   }
 
-
   void _clearData() {
-    _triangleSideA.clear();
-    _triangleSideB.clear();
-    _triangleSideC.clear();
-    solution = '';
+    setState(() {
+      _triangleSideA.clear();
+      _triangleSideB.clear();
+      _triangleSideC.clear();
+      solution = '';
+    });
   }
 
   @override
