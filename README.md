@@ -5,7 +5,6 @@
 Easy to use. 
 
 Features to add:
-    * Show solution
     * Interactive side lengths in picture
 
 
