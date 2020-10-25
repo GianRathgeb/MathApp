@@ -7,7 +7,6 @@ Easy to use.
 Features to add:
     * Interactive side lengths in picture
 
-
 More things to add / change:
     * Better design
     * Better overview of different "modes"
